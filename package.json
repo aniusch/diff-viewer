@@ -2,7 +2,7 @@
   "name": "driftglass",
   "displayName": "Driftglass - Diff viewer",
   "description": "See the cut between live and local. Helm, git, unified, and patch diffs — red drops, green adds.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "aniusch",
   "license": "MIT",
   "engines": {

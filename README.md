@@ -1,3 +1,5 @@
+<p align="center"><img src="icon.png" width="128" alt="Driftglass icon"></p>
+
 # Driftglass — Diff viewer
 
 See the cut between live and local. A tiny, zero-build VSCode / Cursor
@@ -5,6 +7,8 @@ extension that renders diff files as a readable, colored view instead of raw
 text: red drops, green adds.
 
 Opens automatically for `*.diff`, `*.patch`, `*.rej`, and `*.helmdiff` files.
+
+![A git diff in Driftglass: sidebar of changed files, red removed lines, green added lines](images/git-diff.png)
 
 ## Features
 
@@ -14,6 +18,7 @@ Opens automatically for `*.diff`, `*.patch`, `*.rej`, and `*.helmdiff` files.
   (`helm diff upgrade … > out.helmdiff`) gets section headers for every
   resource: lines like `default, web, Deployment (apps) has changed:` show in
   blue, and resources that were added or removed show in green or red.
+  ![A Helm diff in Driftglass: each resource is a section, added ConfigMap in green, removed Secret in red](images/helm-diff.png)
 - **Sidebar.** Every file or resource is listed in a sidebar. Click one to
   jump to it.
 - **Summary bar.** Counts of added and removed lines, plus the number of

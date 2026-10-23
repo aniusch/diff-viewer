@@ -107,7 +107,7 @@ function renderHtml(text, settings) {
   }
   nav a {
     display: block; color: inherit; text-decoration: none;
-    padding: 4px 0; opacity: 0.85; word-break: break-all;
+    padding: 4px 0; opacity: 0.85; overflow-wrap: anywhere;
   }
   nav a:hover { opacity: 1; text-decoration: underline; }
   nav a.add { color: #3fb950; }
@@ -175,4 +175,4 @@ function activate(context) {
 
 function deactivate() {}
 
-module.exports = { activate, deactivate };
+module.exports = { activate, deactivate, renderHtml };

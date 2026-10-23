@@ -1,0 +1,53 @@
+default, web, Deployment (apps) has changed:
+  # Source: web/templates/deployment.yaml
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: web
+    labels:
+      app.kubernetes.io/name: web
+-     app.kubernetes.io/version: "1.8.2"
++     app.kubernetes.io/version: "1.9.0"
+  spec:
+-   replicas: 2
++   replicas: 3
+    template:
+      spec:
+        containers:
+          - name: web
+-           image: "ghcr.io/acme/web:1.8.2"
++           image: "ghcr.io/acme/web:1.9.0"
+            resources:
+              limits:
+-               memory: 256Mi
++               memory: 512Mi
++           envFrom:
++             - configMapRef:
++                 name: web-config
+default, web-config, ConfigMap (v1) has been added:
++ # Source: web/templates/configmap.yaml
++ apiVersion: v1
++ kind: ConfigMap
++ metadata:
++   name: web-config
++ data:
++   LOG_LEVEL: "info"
++   FEATURE_CHECKOUT_V2: "true"
+default, web-legacy-token, Secret (v1) has been removed:
+- # Source: web/templates/secret.yaml
+- apiVersion: v1
+- kind: Secret
+- metadata:
+-   name: web-legacy-token
+- type: Opaque
+default, web, Service (v1) has changed:
+  # Source: web/templates/service.yaml
+  apiVersion: v1
+  kind: Service
+  metadata:
+    name: web
+  spec:
+    ports:
+-     - port: 80
++     - port: 8080
+        targetPort: http

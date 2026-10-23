@@ -9,3 +9,5 @@ scripts/**
 install.sh
 PUBLISHING.md
 *.vsix
+images/**
+samples/**
