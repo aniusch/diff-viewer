@@ -1,0 +1,79 @@
+{
+  "name": "driftglass",
+  "displayName": "Driftglass - Diff viewer",
+  "description": "See the cut between live and local. Helm, git, unified, and patch diffs — red drops, green adds.",
+  "version": "0.1.0",
+  "publisher": "aniusch",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Visualization",
+    "Other"
+  ],
+  "keywords": [
+    "diff",
+    "patch",
+    "helm",
+    "helm-diff",
+    "git",
+    "viewer"
+  ],
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aniusch/diff-viewer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aniusch/diff-viewer/issues"
+  },
+  "homepage": "https://github.com/aniusch/diff-viewer#readme",
+  "activationEvents": [
+    "onCustomEditor:driftglass.preview"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Driftglass - Diff viewer",
+      "properties": {
+        "driftglass.showToc": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the file/resource sidebar."
+        },
+        "driftglass.helmResourceHeaders": {
+          "type": "boolean",
+          "default": true,
+          "description": "Treat Helm-diff lines like “Deployment has changed” as section headers."
+        }
+      }
+    },
+    "customEditors": [
+      {
+        "viewType": "driftglass.preview",
+        "displayName": "Driftglass - Diff viewer",
+        "selector": [
+          {
+            "filenamePattern": "**/*.diff"
+          },
+          {
+            "filenamePattern": "**/*.patch"
+          },
+          {
+            "filenamePattern": "**/*.rej"
+          },
+          {
+            "filenamePattern": "**/*.helmdiff"
+          }
+        ],
+        "priority": "default"
+      }
+    ]
+  },
+  "scripts": {
+    "package": "npx --yes @vscode/vsce@latest package",
+    "publish:vsce": "npx --yes @vscode/vsce@latest publish",
+    "publish:ovsx": "npx --yes ovsx@latest publish"
+  }
+}

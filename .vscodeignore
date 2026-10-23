@@ -1,0 +1,11 @@
+# Zero-build extension: ship extension.js, package.json, README, LICENSE, icon.
+.env
+.env.*
+.vscode/**
+.git/**
+.gitignore
+.vscodeignore
+scripts/**
+install.sh
+PUBLISHING.md
+*.vsix
